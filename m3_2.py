@@ -16,7 +16,7 @@ def get_numbers_ticket(min_val, max_val, quantity) -> set:
             raise ValueError("Аргументи функції повинні бути цілими числами.")
 
         # Перевірка коректності деапозона вхідних даних
-        if not (1 <= min_val <= max_val <= 1000) or not (quantity >= max_val - min_val + 1):
+        if not (1 <= min_val <= max_val <= 1000) or (quantity >= max_val - min_val + 1):
             raise ValueError("Некоректні параметри функції. Перевірте діапазон значень")
 
         # Генерування унікальних випадкових чисел у заданому діапазоні
@@ -33,6 +33,7 @@ def get_numbers_ticket(min_val, max_val, quantity) -> set:
 
 # Приклад використання
 
+print(get_numbers_ticket(10, 20, 5)) # -> [4, 13, 27, 33, 39, 46]
 print(get_numbers_ticket(1, 49, 6)) # -> [4, 13, 27, 33, 39, 46]
 print(get_numbers_ticket(1, 49, 60)) # -> [] Помилка: Некоректні параметри функції. Перевiрте деапозон значень.
 print(get_numbers_ticket(1, 49, "6")) # -> [] Помилка: Аргументи функції повинні бути цілими числами.
